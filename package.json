@@ -1,0 +1,33 @@
+{
+  "name": "hockey_shots",
+  "version": "0.0.1",
+  "description": "hockey statistics",
+  "license": "GPL",
+  "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "await": "^0.2.5",
+    "d3": "^3.5.8",
+    "lodash": "^3.0.0",
+    "request": "^2.69.0",
+    "cheerio": "^0.20.0"
+  },
+  "devDependencies": {
+    "mocha": "latest"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "scrape": "node scrape.js",
+    "lint": "jshint ."
+  },
+  "jshintConfig": {
+    "node": true,
+    "esnext": true,
+    "globals": {
+      "d3": false,
+      "_": false,
+      "window": false
+    }
+  },
+  "author": "Blake Thomas"
+}
