@@ -1,0 +1,71 @@
+[
+  {
+    "period": "1",
+    "type": "PSTR",
+    "description": "Period Start- Local time: 7:08 MST",
+    "away": [
+      {
+        "number": "65",
+        "name": "Center - ANDREW SHAW",
+        "team": "COL"
+      },
+      {
+        "number": "81",
+        "name": "Right Wing - MARIAN HOSSA",
+        "team": "COL"
+      },
+      {
+        "number": "86",
+        "name": "Left Wing - TEUVO TERAVAINEN",
+        "team": "COL"
+      },
+      {
+        "number": "2",
+        "name": "Defense - DUNCAN KEITH",
+        "team": "COL"
+      },
+      {
+        "number": "4",
+        "name": "Defense - NIKLAS HJALMARSSON",
+        "team": "COL"
+      },
+      {
+        "number": "50",
+        "name": "Goalie - COREY CRAWFORD",
+        "team": "COL"
+      }
+    ],
+    "home": [
+      {
+        "number": "7",
+        "name": "Center - JOHN MITCHELL",
+        "team": "CHI"
+      },
+      {
+        "number": "8",
+        "name": "Right Wing - JACK SKILLE",
+        "team": "CHI"
+      },
+      {
+        "number": "55",
+        "name": "Left Wing - CODY MCLEOD",
+        "team": "CHI"
+      },
+      {
+        "number": "2",
+        "name": "Defense - NICK HOLDEN",
+        "team": "CHI"
+      },
+      {
+        "number": "4",
+        "name": "Defense - TYSON BARRIE",
+        "team": "CHI"
+      },
+      {
+        "number": "31",
+        "name": "Goalie - CALVIN PICKARD",
+        "team": "CHI"
+      }
+    ]
+  }
+]
