@@ -1,4 +1,5 @@
 'use strict'
+var exports = module.exports = {};
 
 const fs = require('fs');
 const _ = require('lodash');
@@ -6,36 +7,45 @@ const request = require('request');
 const cheerio = require('cheerio');
 let $;
 
+let gameData;
+let home
+let away;
+
 const siteUrl1 = 'http://www.nhl.com/scores/htmlreports/';
 const siteUrl2 = '/PL';
 const siteUrl3 = '.HTM';
-const season = '20152016';
-const game = '020749';
 
-const url = siteUrl1 + season + siteUrl2 + game + siteUrl3;
-const gameData = [];
+exports.scrapeOneGame = function(game, cb) {
+  const season = '20152016';
+  game = game || '020749';
 
-console.log(url);
+  const url = siteUrl1 + season + siteUrl2 + game + siteUrl3;
+  gameData = [];
 
-let home, away;
+  console.log(url);
 
-request(url, function(error, response, html) {
-  if(error) {
-    console.error('bad request', error);
-  } else {
-    console.log('success');
-    
-    $ = cheerio.load(html);
-    const data = $('tr.evenColor') 
-    const headers = $(data).prev();
-    home = getHome(headers);
-    away = getAway(headers);
-    
-    data.each(parseRow);
-    
-    writeData();
-  }
-})
+  request(url, function(error, response, html) {
+    if(error) {
+      console.error('bad request', error);
+      cb(error);
+    } else {
+      //console.log('success');
+      
+      //reset game data
+      gameData = [];
+      
+      $ = cheerio.load(html);
+      const data = $('tr.evenColor') 
+      const headers = $(data).prev();
+      home = getHome(headers);
+      away = getAway(headers);
+      
+      data.each(parseRow);
+      
+      writeData(gameData, {game, season}, cb);
+    }
+  })
+}
 
 function getHome(headers) {
   return $($(headers).children()[7]).text().slice(0,3);
@@ -45,12 +55,12 @@ function getAway(headers) {
 }
 
 function parseRow(ind, elem) {
-  //  if(ind > 0) return;
-    
   const cells = $(this).children('td');
- 
+  
   const dat = {};
   dat.period = $(cells[1]).text();
+  const elapsedString = $(cells[3]).text();
+  dat.elapsed = elapsedString.slice(0, elapsedString.indexOf(':')+3);
   dat.situation =  $(cells[2]).text();
   dat.type = $(cells[4]).text();
   dat.description = $(cells[5]).text()
@@ -83,11 +93,12 @@ function getName(d) {
   return $(d).children().children().children().attr('title');    
 }
 
-function writeData() {
+function writeData(gameData, info, cb) {
   
-  const fn = 'games/' + season + '_' + game + '.json';
+  const fn = 'games/' + info.season + '_' + info.game + '.json';
   const data = JSON.stringify(gameData, null, 2);
   fs.writeFile(fn, data, function(err) {
-    if(err) console.error(err);
+    if(err) cb(err);
+    else cb(null);
   });
 }  
