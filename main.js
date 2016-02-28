@@ -1,7 +1,7 @@
 var s = require('lib/scrape.js');
 
-var game = '020799';
+var game = '20930';
 
-s.scrapeOneGame('020799', function(err) {
+s.scrapeOneGame(game, function(err) {
   if(err) console.error('bad scrape: ' + game, err);
 });
