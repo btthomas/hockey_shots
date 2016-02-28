@@ -1,4 +1,4 @@
-var s = require('lib/scrape.js');
+var s = require('./lib/scrape.js');
 
 var game = '20930';
 
