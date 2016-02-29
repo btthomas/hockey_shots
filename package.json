@@ -16,7 +16,7 @@
     "mocha": "latest"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node app.js",
     "scrape": "node scrape.js",
     "lint": "jshint ."
   },
