@@ -1,5 +1,7 @@
 node_modules
 
+log.txt
+
 games
 !games/.keep
 !games/crunched/.keep
