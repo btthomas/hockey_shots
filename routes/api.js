@@ -21,6 +21,7 @@ router.get('/games/:game_id', function(req, res) {
   const game_id = sanitize(req.params.game_id);
   cruncher.getOneGame(game_id, function(err, result) {
     if(err) {
+      console.error(err);
       res.json({error: 'error'});
     } else {
       res.json(result);
