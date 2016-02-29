@@ -22,7 +22,7 @@ router.get('/games/:game_id', function(req, res) {
   cruncher.getOneGame(game_id, function(err, result) {
     if(err) {
       console.error(err);
-      res.json({error: 'error'});
+      res.json({error: 'game id does not exist on nhl.com'});
     } else {
       res.json(result);
     }
