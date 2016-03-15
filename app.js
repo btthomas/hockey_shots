@@ -5,7 +5,7 @@ const app = express();
 const await = require('await');
 const fs = require('fs');
 const pg = require('pg');
-const db = require('./lib/db.js');
+//const db = require('./lib/db.js');
 
 const port = process.env.PORT || process.argv[2] || 80;
 
@@ -36,8 +36,3 @@ app.get('/db', function (req, res) {
     }
   });
 })
-
-db.query('create table test_table (id integer, name text)', function(err, res) {
-  if(err) console.error('error', err);
-  else console.log(res);
-});
