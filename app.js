@@ -35,4 +35,23 @@ app.get('/db', function (req, res) {
       });
     }
   });
-})
+});
+
+app.get('/api/db', function (req, res) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    if(err) {
+      console.error(err);
+      res.json({error: 'Error: ' + err});
+    } else {
+      client.query('SELECT * FROM test_table', function(err, result) {
+        done();
+        if (err) {
+          console.error(err); res.send("Error " + err); 
+        } else {
+          res.json({results: result.rows} ); 
+        }
+      });
+    }
+  });
+});
+
