@@ -1,0 +1,1 @@
+pg_ctl -D C:\Users\btt2h\psql_data -l log.txt start
