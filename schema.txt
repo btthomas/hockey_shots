@@ -1,0 +1,13 @@
+schema
+
+players
+id, team, number, lastname, firstname
+WSH19, Washington Capitals, 19, Backstrom, Nicklas
+
+games:
+id, home, away, game_date
+12067, WSH, NYR, 2016-03-15
+
+events:
+game_id, period, time_elapsed, situation, type, description, home_players, away_players
+12067, 1, 3:06, EVEN, SHOT, xxxx, [0,1,2,3,4,5], [0,1,2,3,4,5]
