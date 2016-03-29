@@ -13,7 +13,6 @@ app.set('view engine', "jade");
 app.engine('jade', require('jade').__express);
 
 app.use(express.static(__dirname + '/public'));
-app.use(attachDB);
 app.use(require('./routes'));
 
 app.listen(port, function() {

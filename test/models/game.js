@@ -1,6 +1,7 @@
 'use strict'
 
-const Game = require('../../models/game.js');
+const expect = require('chai').expect;
+const Game   = require('../../models/game.js');
 
 const testGame = {
   id: 2,
