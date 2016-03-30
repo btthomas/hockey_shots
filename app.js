@@ -13,10 +13,12 @@ app.set('view engine', "jade");
 app.engine('jade', require('jade').__express);
 
 app.use(expressMongoDb(process.env.MONGOLAB_URI));
-
 app.use(express.static(__dirname + '/public'));
+app.use(require('./lib/logger.js'));
 app.use(require('./routes'));
 
 app.listen(port, function() {
   console.log("Listening on port " + port);     
 }); 
+
+module.exports = app;
