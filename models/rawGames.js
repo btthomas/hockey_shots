@@ -24,6 +24,13 @@
     });    
   }
 
+  exports.getOne = function(db, query, cb) {
+    db.collection(COLLECTION).findOne(query, function(err, res) {
+      if(err) return cb(err) 
+      else return cb(null, res);
+    });    
+  }
+
   module.exports = exports;
 
 })();

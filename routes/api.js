@@ -13,7 +13,7 @@ router.get('/games/:game_id', function(req, res) {
   const game_id = sanitize(req.params.game_id);
   
   //check if the game has been scraped
-  rawGames.get(req.db, {game: game_id}, function(err, result) {
+  rawGames.getOne(req.db, {game: game_id}, function(err, result) {
     if(result.length === 0) {
       scraper.scrapeOneGame(game_id, function(err, result) {
         if(err) {
