@@ -1,1 +1,1 @@
-pg_ctl -D C:\Users\btt2h\psql_data -l log.txt start
+"C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath C:\Users\\btt2h\Documents\GitHub\hockey_shots\data\db
