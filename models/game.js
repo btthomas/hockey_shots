@@ -1,6 +1,7 @@
 'use strict'
 var exports = module.exports = {};
 const pg = require('pg');
+const dbUrl = process.env.DATABASE_URL
 
 exports.insertGame = function(game, cb) {
   
@@ -9,7 +10,7 @@ exports.insertGame = function(game, cb) {
     if(err) {
       return cb(err);
     } else {
-      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+      pg.connect(dbUrl, function(err, client, done) {
         if(err) {
           done();
           return cb(err);

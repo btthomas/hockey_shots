@@ -2,7 +2,8 @@
   "name": "hockey_shots",
   "version": "0.0.1",
   "description": "hockey statistics",
-  "license": "GPL",
+  "repository": "https://github.com/btthomas/hockey_shots.git",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.13.3",
     "jade": "^1.11.0",
@@ -11,14 +12,17 @@
     "lodash": "^3.0.0",
     "request": "^2.69.0",
     "cheerio": "^0.20.0",
-    "pg": "4.x"
+    "pg": "4.x",
+    "dotenv": "^2.0.0"
   },
   "devDependencies": {
-    "mocha": "latest"
+    "mocha": "latest",
+    "chai": "^3.5.0"
   },
   "scripts": {
     "start": "node app.js",
     "scrape": "node scrape.js",
+    "test": "mocha test",
     "lint": "jshint ."
   },
   "jshintConfig": {
