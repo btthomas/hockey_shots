@@ -52,14 +52,14 @@ router.get('/stats/:game_id', function(req, res) {
     if(err) return sendError(res);
     thisResult = result;
     
-    console.log('thisResults', _.isNull(thisResult), thisResult);
+    // console.log('thisResults', _.isNull(thisResult), thisResult);
 
     if( _.isNull(result) ) {
       scraper.scrapeOneGame(game_id, function(err, scraped) {
         if(err) {
           return sendError(res);
         } else {
-          console.log('scraped', _.keys(scraped));
+          // console.log('scraped', _.keys(scraped));
           thisResult = scraped;
           rawGames.add(req.db, scraped, function(err){
             if(err) {
