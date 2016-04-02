@@ -34,5 +34,9 @@
       "window": false
     }
   },
+  "engines": {
+    "node": "^4.x",
+    "npm": "^3.x"
+  },
   "author": "Blake Thomas"
 }
