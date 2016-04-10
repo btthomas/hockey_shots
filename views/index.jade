@@ -1,1 +1,15 @@
-| Hello Banana!
+extends ./layout.jade
+
+block content
+  h1(class= 'text-center') Welcome to hockey-shots!
+  .container-fluid: .col-xs-12
+    h3 public APIs
+    ul
+      li 
+        code /rawGames/:game_id
+        p
+          | returns all the events from the play-by-play summary from nhl.com for example <a href="http://www.nhl.com/scores/htmlreports/20152016/PL020029.HTM">PL020029.html</a>
+      li 
+        code /stats/:game_id
+        p
+          | returns the computed stats from the the game
